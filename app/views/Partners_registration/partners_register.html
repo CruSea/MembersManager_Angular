@@ -1,26 +1,24 @@
 
-<div style="background-color:@navy">
-<img src="../../img/Logo.png" style="align-items: center">
-</div>
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
 
-        <div class="col-lg-12">
+
+<div class="middle-wide center loginscreen  animated fadeInDown">
+    <div>
+
+        <img ui-sref="landing" src="../../img/Logo2.png" height="285" width="300"/>
+
+    </div>
+    <h1></h1> <h1></h1>
+
+        <div class="col-lg-8">
             <div class="ibox" style="align-content: center">
-                <div class="ibox-title">
-                    <h5>IMS registration</h5>
 
-                    <div ibox-tools></div>
-                </div>
                 <div class="ibox-content wizard">
                     <h2>
                         Register Here
                     </h2>
 
                     <p>
-                       You can register here and join our International movement.
-                        <br/>
-                        <strong>Data from ng-model.</strong><br/>
+                        You can register here and join our International movement.
 
                     </p>
 
@@ -28,10 +26,10 @@
                         <ul>
 
                             <li ui-sref-active="current">
-                                <a ui-sref=".step_one" class="btn-default"><span>1</span> Account information</a>
+                                <a ui-sref=".step_one" class="btn-default"><span>1</span> Profile Information</a>
                             </li>
                             <li ui-sref-active="current">
-                                <a ui-sref=".step_two" class="btn-default"><span>2</span> Profile Information</a>
+                                <a ui-sref=".step_two" class="btn-default"><span>2</span> Membership Information</a>
                             </li>
                             <li ui-sref-active="current">
                                 <a ui-sref=".step_three" class="btn-default"><span>3</span> Terms and Conditions</a>
@@ -41,25 +39,20 @@
                     <div class="wizard">
                         <div class="content">
 
-                        <form name="signupForm" ng-submit="processForm()" class="p-lg">
+                            <form name="signupForm" ng-submit="processForm()" class="p-lg">
 
-                            <!-- our nested state views will be injected here -->
-                            <div id="form-views" ui-view></div>
-                        </form>
+                                <!-- our nested state views will be injected here -->
+                                <div id="form-views" ui-view></div>
+                            </form>
 
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-    </div>
+
 </div>
-<div>
-    <div class="pull-right">
-        10GB of <strong>250GB</strong> Free.
-    </div>
-    <div>
-        <strong>Copyright</strong> Example Company &copy; 2014-2015
-    </div>
-</div>
+
+
+

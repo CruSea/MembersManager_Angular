@@ -31,7 +31,7 @@ function config($stateProvider, $urlRouterProvider, $translateProvider) {
             url: "/partners",
             templateUrl: "views/Partners_registration/partners_register.html",
             controller: "PartnersPageCtrl",
-            data: { pageTitle: 'Registration' },
+            data: { pageTitle: 'Registration', specialClass: 'gray-bg'},
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
