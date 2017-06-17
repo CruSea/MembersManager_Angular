@@ -1,18 +1,24 @@
 <fieldset>
 
-
-    <div class="row">
+    <div layout-align="center">
         <h2>Personal Information</h2>
         <div class="col-lg-6">
+            <div class="col-lg-6">
             <div class="form-group">
-                <label>Full Name| ሙሉ ስም *</label>
-                <input id="userName" ng-model="formData.username" name="username" type="text" class="form-control" ng-minlength="8">
-                <p ng-show="signupForm.username.$error.minlength" class="help-block">Example of validation - Username is too short (min 8 signs)</p>
-            </div>
+                    <label>First name *</label>
+                    <input id="name" name="name" ng-model="formData.name" type="text" class="form-control required">
+                </div>
+            <div class="form-group">
+                    <label>Father Name *</label>
+                    <input id="fathername" name="surname" ng-model="formData.lastName" type="text" class="form-control required">
+                </div>
+            <div class="form-group">
+                    <label>Last name *</label>
+                    <input id="surname" name="surname" ng-model="formData.lastName" type="text" class="form-control required">
+                </div>
             <div class="form-group">
                 <label>Phone | ስልክ *</label>
                 <input id="phone" ng-model="formData.phone" name="phone" type="text" class="form-control">
-                <p ng-show="signupForm.username.$error.minlength" class="help-block">Type your phone no starting from your area code +25191...</p>
             </div>
             <div class="form-group">
                 <label> Email | ኤሜል *</label>
@@ -26,45 +32,11 @@
                 </select>
                 </div>
             </div>
+                </div>
         </div>
 
-        <h2> Membership Contribution </h2>
-        <div class="col-lg-6" align="center">
-
-            <div class="col-md-6" align="center">
-            <div class="form-group-sm">
-                <label>Amount*</label>
-                <input id="amount" name="amount" type="text" class="form-control" >
-            </div>
-            <div class="form-group">
-
-                <div class="col-sm-10">
-                    <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Monthly | በየወሩ
-                    </label>
-                    <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Yearly |በየአመቱ
-                    </label>
-                    <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Once | ለአንድ ጊዜ
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-
-                <div class="col-sm-10">
-                    <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Monthly | በየወሩ
-                    </label>
-                    <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Yearly |በየአመቱ
-                    </label>
-                    <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Once | ለአንድ ጊዜ
-                    </label>
-                </div>
-
-            </div>
-
-           </div>
-        </div>
     </div>
 
-    <a ui-sref="partners.step_two" class="btn btn-primary">Next</a>
 </fieldset>
 
 
