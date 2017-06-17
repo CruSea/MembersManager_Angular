@@ -1,0 +1,85 @@
+<div class="row wrapper white-bg page-heading">
+    <div class="col-lg-12">
+        <h2><strong>Negarit SMS</strong></h2>
+        <ol class="breadcrumb">
+            <li>
+                <a>Negarit</a>
+            </li>
+            <li class="active">
+                <strong>All Messages</strong>
+            </li>
+        </ol>
+    </div>
+    <hr>
+</div>
+<div class="row wrapper  white-bg page-heading" ng-controller="MessagesCtrl">
+    <div>
+        <div class="col-sm-9">
+            <div class="ibox float-e-margins">
+
+                <div class="ibox-title">
+                    <h5>Negarit SMS Delivery System
+                        <small>Sort, search</small>
+                    </h5>
+                </div>
+                <div class="ibox-content">
+                    <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Message ID</th>
+                            <th>Company Name</th>
+                            <th>Message</th>
+                            <th>Sent From</th>
+                            <th>Sent To</th>
+                            <th>SMS Port</th>
+                            <th>Date Time</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="gradeX" ng-repeat="data in All_Messages | orderBy: 'createdDate'">
+                            <td>{{data.messageID}}</td>
+                            <td>{{data.Company.CompanyName}}</td>
+                            <td>{{data.message}}</td>
+                            <td>{{data.messageFrom}}</td>
+                            <td>{{data.messageSentTo}}</td>
+                            <td>{{data.Device.deviceName}}</td>
+                            <td>{{data.createdDate | date: 'yyyy-MM-dd' }}</td>
+                            <td>
+                                <br>
+                                <a class="btn-warning" ng-click="Delete_Message(data)">Delete</a>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Send New Message</h5>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Type your message here" class="form-control" ng-model= "message.message" maxlength="150" rows="5"   type="text"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>SMS Port</label>
+                    <select class="form-control" name="show-filter" ng-model="message.deviceName" ng-options="option as option.deviceName for option in All_Devices">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input placeholder="Type Recipient phone number" ng-model="message.messageSentTo" class="form-control" name="website" required="" type="text">
+
+                </div>
+                <div class="form-group">
+                    <button class="form-control btn-primary" type="button" ng-click="Add_New_Messages(message)"><strong>Send SMS</strong></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

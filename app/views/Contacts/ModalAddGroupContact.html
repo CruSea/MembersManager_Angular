@@ -1,0 +1,57 @@
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-12 animated fixed">
+            <div class="content">
+                <h2><strong>Add New Contact</strong></h2>
+                <hr>
+                <div class="form-group">
+                    <label class="font-noraml">Full Name <strong>*</strong></label>
+                    <div class="input-group date">
+                        <input type="text" class="form-control" ng-model="Contact.FullName" placeholder="Contact Name">
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Phone Number</label>
+                    <div class="input-group date">
+                        <input type="text" class="form-control ng-valid ng-touched ng-not-empty ng-dirty ng-valid-parse" placeholder="Phone Number" data-mask="+251999999999" ng-model="Contact.Phone" required="">
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Email Address <strong>*</strong></label>
+                    <div class="input-group date">
+                        <input type="text" class="form-control" ng-model="Contact.Email" placeholder="Email">
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Location<strong>*</strong></label>
+                    <div class="input-group date">
+                        <input type="text" class="form-control" ng-model="Contact.Location" placeholder="Location">
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Note<strong>*</strong></label>
+                    <div class="input-group date">
+                        <input type="text" class="form-control" ng-model="Contact.Note" placeholder="Note">
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Description <strong>*</strong></label>
+                    <div class="input-group date">
+                        <textarea type="text" rows="5" class="form-control" ng-model="Contact.Description" placeholder="Contact Group Description"></textarea>
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <br><br>
+                <div class="form-group pull-right">
+                    <button ng-click="ok()" class="btn btn-white" type="submit">Cancel</button>
+                    <button ng-click="addGroupContact(Contact)" class="btn btn-primary"  type="submit">Add Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

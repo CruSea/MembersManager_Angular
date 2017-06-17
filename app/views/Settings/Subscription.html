@@ -1,0 +1,137 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Settings</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a>Settings</a>
+            </li>
+            <li class="active">
+                <strong>Subscriptions</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="wrapper wrapper-content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Available Services</h5>
+                            </div>
+                            <div class="ibox-content ibox-heading">
+                                <h4><i></i>Select Sevices Group</h4>
+                                <select class="form-control" ng-model="selectedCategory">
+                                    <option value="" selected="selected">All Categories</option>
+                                    <option value="{{opt.name}}"  ng-repeat="opt in TenderGroups">{{opt.name}}</option>
+                                </select>
+                                <br>
+                                <input type="text" placeholder="Search" class="form-control" ng-model="searchedCategory">
+                            </div>
+                            <div class="ibox-content">
+                                <div class="feed-activity-list">
+                                    <div class="feed-element" ng-repeat="category in AvailableServices | filter: selectedCategory | filter: searchedCategory">
+                                        <div class="media-body ">
+                                            <strong>{{category.name}}</strong><br>
+                                            <small class="text-muted">{{ category.created_date.date.substring(0,10) | date : 'longDate' }}</small>
+                                            <br>
+                                            <div>{{category.description}}</div>
+                                            <div class="actions">
+                                                <a class="btn btn-xs btn-white" ng-click="AddPendingSubscription(category)"><i class="fa fa-thumbs-up"></i> Subscribe </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="label label-info pull-right">Categories</span>
+                                <h5>Services on Pending</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins"><strong>{{PendingServices.length}}</strong></h1>
+                                <small>Total Number of Services on pending</small>
+
+                                <div class="stat-percent font-bold text-info">100% <i class="fa fa-level-up"></i></div>
+                            </div>
+                        </div>
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Requested Services</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="feed-activity-list">
+
+                                    <div class="feed-element" ng-repeat="pendings in PendingServices |orderBy: 'id':true ">
+                                        <div>
+                                            <strong>{{ pendings.category.name }}</strong>
+
+                                            <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</div>
+                                            <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
+                                        </div>
+                                        <div class="actions">
+                                            <a ng-click="RemovePendingSubscription(pendings)" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Remove </a>
+                                            <a ng-click="AddSubscription(pendings.category)" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Publish </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="label label-primary pull-right">Today</span>
+                                <h5>Active Services</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <h1 class="no-margins"><strong>{{SubscribedServices.length}}</strong></h1>
+                                <small>Total Number of Active Services</small>
+
+                                <div class="stat-percent font-bold text-info">100% <i class="fa fa-level-up"></i></div>
+                            </div>
+                        </div>
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Approved and Working Services</h5>
+
+                                <!-- This is example of local custom ibox tools -->
+                                <div class="ibox-tools">
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+
+                                <div class="feed-activity-list">
+
+                                    <div class="feed-element" ng-repeat="pendings in SubscribedServices |orderBy: 'id':true">
+                                        <div>
+                                            <strong>{{ pendings.category.name}}</strong>
+
+                                            <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</div>
+                                            <small class="text-muted">Today 5:60 pm - 12.06.2014</small>
+                                        </div>
+                                        <div class="actions">
+                                            <a ng-click="RemoveSubscription(pendings)" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Remove </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

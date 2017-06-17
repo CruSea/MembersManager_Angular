@@ -1,0 +1,78 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Settings</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a>Settings</a>
+            </li>
+            <li class="active">
+                <strong>Profile</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="wrapper wrapper-content animated fadeInUp">
+
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Registered Users</h5>
+
+                <div class="ibox-tools">
+                    <a ng-click="addNewUser()" class="btn btn-primary" ng-show="Privilege < 4">Add New User</a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row m-b-sm m-t-sm">
+                    <div class="col-md-1">
+                        <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> Refresh</button>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                    </div>
+                </div>
+                <div class="project-list">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr >
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>User Name</th>
+                            <th>Account Status</th>
+                            <th>Created Date</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="user in Users">
+                            <td>{{user.id}}</td>
+                            <td>
+                                <strong>{{ user.full_name }}</strong>
+                                <br>
+                                <small>{{ user.privilege.name }}</small>
+                            </td>
+                            <td>{{user.user_name}}</td>
+                            <td>
+                                <a ng-show="user.is_active" href="#"><i class="fa fa-check text-navy"></i></a>
+                                <a ng-show="!user.is_active" href="#"><i class="fa fa-times text-navy"></i></a>
+                            </td>
+                            <td>May 2, 2017</td>
+                            <td>
+                                <a ng-show="user.is_active && Privilege < 4" class="btn btn-primary btn-sm" ng-show="Privilege < 3"><i class="fa fa-remove"></i> Activate </a>
+                                <a ng-show="!user.is_active && Privilege < 4" class="btn btn-warning btn-sm" ng-show="Privilege < 3"><i class="fa fa-remove"></i> Deactivate </a>
+                                <a ng-click="removeUser(user)" class="btn btn-white btn-sm" ng-show="Privilege < 4"><i class="fa fa-remove"></i> Remove </a>
+                                <a class="btn btn-white btn-sm" ng-show="Privilege < 4"><i class="fa fa-pencil"></i> Edit </a>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

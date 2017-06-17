@@ -1,0 +1,29 @@
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-12 animated fixed">
+            <div class="content">
+                <h2><strong>Reset SMS Port Secret</strong></h2>
+                <hr>
+                <div class="form-group">
+                    <label class="font-noraml">Port Secret <strong>*</strong></label>
+                    <div class="input-group date">
+                        <input type="password" class="form-control" ng-model="Port.Secret1" placeholder="Port Secret">
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="font-noraml">Retype Port Secret <strong>*</strong></label>
+                    <div class="input-group date">
+                        <input type="password" class="form-control" ng-model="Port.Secret2" placeholder="Port Secret">
+                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                    </div>
+                </div>
+                <br><br>
+                <div class="form-group pull-right">
+                    <button ng-click="ok()" class="btn btn-white" type="submit">Cancel</button>
+                    <button ng-click="ResetSMSPort(Port)" class="btn btn-primary"  type="submit">Change Secret</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

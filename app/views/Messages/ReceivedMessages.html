@@ -1,0 +1,81 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Short Messages</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a>SMS</a>
+            </li>
+            <li class="active">
+                <strong>Received Messages</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content ng-scope">
+    <div class="row">
+        <!--<div ng-include="'views/Messages/MessageNavigation.html'"></div>-->
+        <div class="col-lg-12 animated fadeInRight">
+            <div class="mail-box-header">
+
+                <form method="get" action="index.html" class="pull-right mail-search ng-pristine ng-valid">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" name="search" placeholder="Search received messages">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <h2>
+                    Received Messages
+                </h2>
+
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+                    </div>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Refresh inbox"><i class="fa fa-refresh"></i> Refresh</button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Mark as read"><i class="fa fa-eye"></i></button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Mark as important"><i class="fa fa-exclamation"></i></button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i></button>
+
+                </div>
+            </div>
+            <div style="overflow:scroll; height:800px;">
+                <div class="mail-box">
+                    <div class="ibox-content">
+
+                        <table class="table table-mail">
+                            <thead>
+                            <tr>
+                                <th>Message</th>
+                                <th>Port Name</th>
+                                <th>Sent To</th>
+                                <th>Created Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="message in ReceivedMessages | orderBy: 'id' : true">
+                                <td><strong><a>{{message.message}}</a></strong></td>
+                                <td>{{message.sms_port.name}}</td>
+                                <td>{{message.message_to}}</td>
+                                <td>{{message.created_date.date.substring(0,19)}}</td>
+                                <td>
+                                    <button ng-click="removeReceivedMessage(message)" class="btn btn-white btn-xs" data-toggle="tooltip" data-placement="left" title="Refresh inbox"><i class="fa fa-trash"></i> Delete</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Settings</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a>Settings</a>
+            </li>
+            <li class="active">
+                <strong>SMS Ports</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="wrapper wrapper-content animated fadeInUp">
+        <div>
+            <div class="ibox-title">
+                <h5>SMS Ports</h5>
+                <div class="ibox-tools">
+                    <a ng-click="addNewSMSPort()" class="btn btn-primary" ng-show="Privilege < 4">Add New SMS Port</a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="project-list">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr >
+                            <th>Port Name</th>
+                            <th>Port ID</th>
+                            <th>Port Type</th>
+                            <th>Port Status</th>
+                            <th>Created Date</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="port in SMSPorts">
+                            <td>
+                                <strong>{{ port.name }}</strong>
+                            </td>
+                            <td><strong>{{port.port_id}}</strong></td>
+                            <td><strong>{{port.port_type}}</strong></td>
+                            <td>
+                                <a ng-show="port.is_active" href="#"><i class="fa fa-check text-navy"></i></a>
+                                <a ng-show="!port.is_active" href="#"><i class="fa fa-times text-navy"></i></a>
+                            </td>
+                            <td>{{port.created_date.date.substring(0,11)}}</td>
+                            <td>
+                                <a ng-click="resetSMSPort(port)" class="btn btn-primary btn-sm" ng-show="Privilege < 4 && port.port_type == 'Mobile' "><i class="fa fa-remove"></i> Change Password </a>
+                                <a ng-click="removeSMSPort(port)" class="btn btn-white btn-sm" ng-show="Privilege < 4  && port.port_type == 'Mobile'"><i class="fa fa-remove"></i> Remove </a>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
