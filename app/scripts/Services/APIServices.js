@@ -5,7 +5,7 @@ angular
     .module('inspinia')
     .factory('APIServices', function ($http,$httpParamSerializer,$cookies) {
 
-        var MainUser = {user_name:null,user_pass:null,privilege:git ,full_name:'',privilege_name:''};
+        var MainUser = {user_name:null,user_pass:null,privilege:null,full_name:'',privilege_name:''};
 
         var Value = null;
         function requestFormat() {
