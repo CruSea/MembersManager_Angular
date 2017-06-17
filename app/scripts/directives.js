@@ -14,7 +14,7 @@ function pageTitle($rootScope, $timeout) {
                 // Default title - load on Dashboard 1
                 var title = 'IMS | Members Manager';
                 // Create your own title pattern
-                if (toState.data && toState.data.pageTitle) title = 'INSPINIA | ' + toState.data.pageTitle;
+                if (toState.data && toState.data.pageTitle) title = 'IMS | ' + toState.data.pageTitle;
                 $timeout(function() {
                     element.text(title);
                 });

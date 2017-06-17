@@ -7,30 +7,20 @@
  *
  */
 function config($stateProvider, $urlRouterProvider, $translateProvider) {
-    $urlRouterProvider.otherwise("/partners");
+    $urlRouterProvider.otherwise("/admin_login");
 
     $stateProvider
-
-        .state('index', {
-            abstract: true,
-            url: "/index",
-            templateUrl: "views/common/content.html",
-        })
-        .state('index.main', {
-            url: "/main",
-            templateUrl: "views/main.html",
-            data: { pageTitle: 'Example view' }
-        })
-        .state('index.minor', {
-            url: "/minor",
-            templateUrl: "views/minor.html",
-            data: { pageTitle: 'Example view' }
-        })
 
         // Admin Login Pages
         .state('admin_login', {
             url: "/admin_login",
             templateUrl: "views/AdminLogin/AdminLogin.html",
+            controller: 'AdminLogInCtrl',
+            data: { pageTitle: 'Log in', specialClass: 'gray-bg' }
+        })
+        .state('admin_register', {
+            url: "/admin_register",
+            templateUrl: "views/AdminLogin/AdminRegister.html",
             controller: 'AdminLogInCtrl',
             data: { pageTitle: 'Log in', specialClass: 'gray-bg' }
         })
@@ -43,6 +33,25 @@ function config($stateProvider, $urlRouterProvider, $translateProvider) {
             controller: 'PartnersPageCtrl',
             data: { pageTitle: 'Log in', specialClass: 'gray-bg' }
         })
+
+
+        // Admin Page
+        .state('index', {
+            abstract: true,
+            url: "/index",
+            templateUrl: "views/common/content.html",
+            controller: 'DashboardCtrl'
+        })
+        .state('index.dashboard', {
+            url: "/dashboard",
+            templateUrl: "views/Dashboard/Dashboard.html",
+            controller: 'DashboardCtrl',
+            data: { pageTitle: 'Example view' }
+        });
+
+
+
+
 
         $translateProvider
         .translations('en', {
