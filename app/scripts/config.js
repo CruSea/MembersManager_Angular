@@ -29,9 +29,36 @@ function config($stateProvider, $urlRouterProvider, $translateProvider) {
         // Partners Pages
         .state('partners', {
             url: "/partners",
-            templateUrl: "views/PartnersPage/PartnersPage.html",
-            controller: 'PartnersPageCtrl',
-            data: { pageTitle: 'Log in', specialClass: 'gray-bg' }
+            templateUrl: "views/Partners_registration/partners_register.html",
+            controller: "PartnersPageCtrl",
+            data: { pageTitle: 'Registration' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['scripts/css/plugins/steps/jquery.steps.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('partners.step_one', {
+            url: '/step_one',
+            templateUrl: 'views/Partners_registration/step_one.html',
+            controller: "PartnersPageCtrl",
+            data: { pageTitle: 'Registration' }
+        })
+        .state('partners.step_two', {
+            url: '/step_two',
+            templateUrl: 'views/Partners_registration/step_two.html',
+            controller: "PartnersPageCtrl",
+            data: { pageTitle: 'Registration' }
+        })
+        .state('partners.step_three', {
+            url: '/step_three',
+            templateUrl: 'views/Partners_registration/step_three.html',
+            controller: "PartnersPageCtrl",
+            data: { pageTitle: 'Registration' }
         })
 
 
