@@ -16,11 +16,27 @@ angular
             req_format.param = "-";
             return req_format;
         }
+        function negaritRequestFormat() {
+            var req_format = {user_name:'',user_pass:'',service:'', param:''};
+            req_format.user_name = "george";
+            req_format.user_pass = "passben";
+            req_format.service = "-";
+            req_format.param = "-";
+            return req_format;
+        }
         var Services = {};
         Services.requestServer = function (request) {
             return $http({
                 method:'POST',
                 url:'http://localhost:8888/MembersManager_api/public/api',
+                data:$httpParamSerializer(request),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            });
+        };
+        Services.requestNegaritServer = function (request) {
+            return $http({
+                method:'POST',
+                url:'http://api.negarit.net/negarit',
                 data:$httpParamSerializer(request),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             });
@@ -55,6 +71,9 @@ angular
         };
         Services.getRequestFormat = function () {
             return requestFormat();
+        };
+        Services.getNegaritRequestFormat = function () {
+            return negaritRequestFormat();
         };
         return Services;
     });

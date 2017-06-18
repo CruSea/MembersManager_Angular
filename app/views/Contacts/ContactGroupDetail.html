@@ -35,7 +35,7 @@
                     <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
                         <tr>
-                            <th>Full Name</th>
+                            <th>First Name</th>
                             <th>Phone Number</th>
                             <th>Location</th>
                             <th>Created Date</th>
@@ -44,11 +44,11 @@
                         </thead>
                         <tbody>
                         <tr class="gradeX" ng-repeat="contact in GroupContacts">
-                            <td><strong>{{contact.contact.full_name}}</strong></td>
-                            <td>{{contact.contact.phone_number}}</td>
+                            <td><strong>{{contact.member_profile.first_name + " "+contact.member_profile.middle_name}}</strong></td>
+                            <td>{{contact.member_profile.phone}}</td>
                             <td>{{contact.contact.location}}</td>
                             <td>{{contact.updated_date.date.substring(0,10)}}</td>
-                            <td><a ng-show="Privilege < 4" ng-click="removeGroupContact(contact)" class="fa fa-remove">Remove</a></td>
+                            <td><a ng-click="removeGroupContact(contact)" class="fa fa-remove">Remove</a></td>
                         </tr>
                         </tbody>
                         <tfoot>
@@ -80,9 +80,9 @@
                         </thead>
                         <tbody>
                         <tr class="gradeX" ng-repeat="contact in GroupNewContacts">
-                            <td><strong>{{contact.full_name}}</strong></td>
-                            <td>{{contact.phone_number}}</td>
-                            <td><a ng-show="Privilege < 4" ng-click="addNewGroupContact(contact)" class="fa fa-send">  Add to Group</a></td>
+                            <td><strong>{{contact.first_name}}</strong></td>
+                            <td>{{contact.phone}}</td>
+                            <td><a ng-click="addNewGroupContact(contact)" class="fa fa-send">  Add to Group</a></td>
                         </tr>
                         </tbody>
                         <tfoot>

@@ -206,7 +206,7 @@ function config($stateProvider, $urlRouterProvider, $translateProvider) {
         .state('contact.detail', {
             url: "/detail",
             templateUrl: "views/Contacts/ContactGroupDetail.html",
-            controller: 'ContactGroupCtrl',
+            controller: 'GroupedContactCtrl',
             data: { pageTitle: 'Group Detail' },
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
