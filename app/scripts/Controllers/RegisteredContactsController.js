@@ -93,7 +93,7 @@ angular
             $scope.updateContact = function (newContact) {
                 console.log("Update Contact:->", newContact);
                 var req_format = APIServices.getRequestFormat();
-                req_format.service = "update_company_contact";
+                req_format.service = "update_contact";
                 req_format.param = {contact_id:$scope.Contact.id,full_name:newContact.full_name,phone:newContact.phone_number,email:newContact.email,location:newContact.location,note:newContact.note,description:newContact.description};
                 console.log("Sent Update Contact:",req_format);
                 APIServices.requestServer(req_format).then(function (response) {
