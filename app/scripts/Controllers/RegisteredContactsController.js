@@ -3,9 +3,10 @@
  */
 angular
     .module('inspinia')
-    .controller('RegisteredContactsCtrl', function($scope,DTOptionsBuilder, $location, $state) {
+    .controller('RegisteredContactsCtrl', function($scope,DTOptionsBuilder, $location, $state,APIServices) {
         console.log("AdminLog in controller loaded");
         var req_format = {user_name:'',userpass:'',service:'', param:''};
+        $scope.Contacts = [];
         $scope.dtOptions = DTOptionsBuilder.newOptions()
             .withDOM('<"html5buttons"B>lTfgitp')
             .withButtons([
@@ -21,4 +22,24 @@ angular
                     }
                 }
             ]);
+        function loadContact() {
+            var req_format = APIServices.getRequestFormat();
+            req_format.service = "get_all_member_contacts";
+            req_format.param = {};
+            console.log("Sent Request:->", req_format);
+            APIServices.requestServer(req_format).then(function (response) {
+                console.log("Response:->", response);
+                if(response !== null && response.data !== null){
+                    var contacts = response.data.response;
+                    if(contacts){
+                        console.log("Contacts->:",contacts);
+                        $scope.Contacts = contacts;
+                    }else {
+                        var error = response.data.error;
+                        console.log("Error Response->:",error);
+                    }
+                }
+            });
+        }
+        loadContact();
     });
