@@ -7,6 +7,7 @@ angular
         console.log("Settings controller loaded");
         $scope.Users = [];
         $scope.Privilege = APIServices.getMainUser().privilege;
+        $scope.Profile = APIServices.getProfile();
         function loadUsers() {
             var req_format = APIServices.getRequestFormat();
             req_format.service = "get_all_users";
@@ -179,6 +180,26 @@ angular
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/Settings/ModalAddUser.html',
                 controller: ModalInstanceCtrl
+            });
+        };
+        $scope.saveProfile = function (profile) {
+            APIServices.saveProfile(profile);
+            var req_format = APIServices.getNegaritRequestFormat();
+            req_format.service = "log_in";
+            req_format.param = "[]";
+            console.log("Sent Request:->", req_format);
+            APIServices.requestNegaritServer(req_format).then(function (response) {
+                console.log("Response:->", response);
+                if(response !== null && response.data !== null){
+                    var user = response.data.response;
+                    if(user){
+                        swal("Negarit Connected Successfully!", "Now your system is connected", "success");
+                    }else {
+                        swal("Oops!", "Unable to connect to negarit.net", "error");
+                    }
+                }else {
+                    swal("Oops!", "it seems like there is problem while trying to connect to server", "error");
+                }
             });
         };
     });

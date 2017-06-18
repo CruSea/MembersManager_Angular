@@ -1,0 +1,43 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Settings</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a>Settings</a>
+            </li>
+            <li class="active">
+                <strong>Profile</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-5 animated fixed">
+        <div class="content">
+            <h2><strong>Negarit SMS Account Information</strong></h2>
+            <hr>
+            <div class="form-group">
+                <label class="font-noraml">User Name <strong>*</strong></label>
+                <div class="input-group date">
+                    <input type="text" class="form-control" ng-model="Profile.user_name" placeholder="Username">
+                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-noraml">User Pass <strong>*</strong></label>
+                <div class="input-group date">
+                    <input type="password" class="form-control" ng-model="Profile.user_pass" placeholder="Password">
+                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                </div>
+            </div>
+            <br><br>
+            <div class="form-group pull-right">
+                <button ng-click="ok()" class="btn btn-white" type="submit">Cancel</button>
+                <button ng-click="saveProfile(Profile)" class="btn btn-primary"  type="submit">Save Account</button>
+            </div>
+        </div>
+    </div>
+</div>

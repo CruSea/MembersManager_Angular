@@ -121,7 +121,7 @@ angular
                     function (isConfirm) {
                         if (isConfirm) {
                             var req_format = APIServices.getRequestFormat();
-                            req_format.service = "remove_company_contact";
+                            req_format.service = "remove_contact";
                             req_format.param = {item_id:$scope.Contact.id};
                             console.log("Sent Request:->", req_format);
                             APIServices.requestServer(req_format).then(function (response) {

@@ -243,7 +243,7 @@ function config($stateProvider, $urlRouterProvider, $translateProvider) {
         })
         .state('settings.profile', {
             url: "/Profile",
-            templateUrl: "views/Settings/Profile.html",
+            templateUrl: "views/Settings/SettingPage.html",
             controller: 'SettingsCtrl',
             data: { pageTitle: 'Users' },
             resolve: {

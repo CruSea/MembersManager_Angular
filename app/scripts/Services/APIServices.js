@@ -18,11 +18,14 @@ angular
         }
         function negaritRequestFormat() {
             var req_format = {user_name:'',user_pass:'',service:'', param:''};
-            req_format.user_name = "george";
-            req_format.user_pass = "passben";
+            req_format.user_name = getProfile().user_name;
+            req_format.user_pass = getProfile().user_pass;
             req_format.service = "-";
             req_format.param = "-";
             return req_format;
+        }
+        function getProfile() {
+            return {user_name:$cookies.get('negarit_name'),user_pass:$cookies.get('negarit_pass')}
         }
         var Services = {};
         Services.requestServer = function (request) {
@@ -61,6 +64,15 @@ angular
             $cookies.put('privilege_name', user.privilege_name);
             $cookies.put('company_name', user.company_name);
 
+        };
+        Services.saveProfile = function (profile) {
+            $cookies.put('negarit_name', profile.user_name);
+            $cookies.put('negarit_pass', profile.user_pass);
+            console.log("Saving Profile:->",profile);
+        };
+        Services.getProfile = function () {
+            console.log("Getting Profile:->");
+            return {user_name:$cookies.get('negarit_name'),user_pass:$cookies.get('negarit_pass')}
         };
         Services.setMainValue = function (newValue) {
             Value = newValue;
