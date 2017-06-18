@@ -47,8 +47,28 @@ angular
                 }
             });
         }
+        function loadGroupMessages() {
+            var req_format = APIServices.getRequestFormat();
+            req_format.service = "get_all_group_messages";
+            req_format.param = {};
+            console.log("Sent Request:->", req_format);
+            APIServices.requestServer(req_format).then(function (response) {
+                console.log("Response:->", response);
+                if(response !== null && response.data !== null){
+                    var smsPorts = response.data.response;
+                    if(smsPorts){
+                        console.log("Company Send Messages->:",smsPorts);
+                        $scope.GroupMessages = smsPorts;
+                    }else {
+                        var error = response.data.error;
+                        console.log("Error Response->:",error);
+                    }
+                }
+            });
+        }
         loadCampaigns();
         loadContactGroup();
+        loadGroupMessages();
         $scope.addNewGroupMessage = function (groupMessage) {
             console.log("Add Group Messages->:",groupMessage);
             var req_format = APIServices.getRequestFormat();
@@ -72,6 +92,40 @@ angular
                     }
                 }
             });
+        };
+        $scope.removeGroupMessage = function (sendMessage) {
+            swal({
+                    title: "Are you sure?",
+                    text: "Your will not be able to recover this message!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, remove it!",
+                    cancelButtonText: "No, cancel please!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var req_format = APIServices.getRequestFormat();
+                        req_format.service = "remove_group_message";
+                        req_format.param = {item_id:sendMessage.id};
+                        console.log("Sent Request:->", req_format);
+                        APIServices.requestServer(req_format).then(function (response) {
+                            console.log("Response:->", response);
+                            if(response !== null && response.data !== null){
+                                var user = response.data.response;
+                                if(user){
+                                    loadGroupMessages();
+                                    swal("Deleted!", "Your Group Message has been deleted.", "success");
+                                }else {
+                                    swal("Failed", "unable to remove this Group Message", "error");
+                                }
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "The Campaign is safe :)", "error");
+                    }
+                });
         };
     });
 

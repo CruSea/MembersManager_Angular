@@ -74,10 +74,10 @@ angular
                 $uibModalInstance.dismiss();
             };
             $scope.addContact = function (newContact) {
-                console.log("Add New Group:->", newContact);
+                console.log("Add New Member Contact:->", newContact);
                 var req_format = APIServices.getRequestFormat();
-                req_format.service = "add_new_company_contact";
-                req_format.param = {full_name:newContact.FullName,phone:newContact.Phone,email:newContact.Email,location:newContact.Location,note:newContact.Note,description:newContact.Description};
+                req_format.service = "add_new_contact";
+                req_format.param = {first_name:newContact.FirstName,middle_name:newContact.MiddleName,last_name:newContact.LastName,phone:newContact.Phone,email:newContact.Email,age:newContact.Age,sex:newContact.Sex};
                 console.log("Sent:",req_format);
                 APIServices.requestServer(req_format).then(function (response) {
                     console.log("Response:",response);
