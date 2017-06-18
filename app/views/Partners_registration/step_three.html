@@ -1,8 +1,130 @@
 <fieldset>
-    <h2>Terms and Conditions</h2>
-    <input id="acceptTerms" name="acceptTerms" type="checkbox" ng-model="formData.terms" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+    <h2>Church information</h2>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-12 animated fixed">
+                <div class="content">
+                    <h2><strong>Add New Member Contact</strong></h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="font-noraml">Synod<strong>*</strong></label>
+                                <div class="input-group date">
+                                    <select class="form-control">
+                                        <option>Nothern Synod</option>
+                                        <option>South Synod</option>
+                                        <option>West Synod</option>
+                                        <option>East Synod</option>
+                                    </select>
+                                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="font-noraml">Presbytery<strong>*</strong></label>
+                                <div class="input-group date">
+                                    <select class="form-control">
+                                        <option>Eastern Addis Aabab </option>
+                                        <option>Western Addis Aabab </option>
+                                        <option>Southern Addis Aabab </option>
+                                    </select>
+                                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="font-noraml">Congregation<strong>*</strong></label>
+                                <div class="input-group date">
+                                    <select class="form-control">
+                                        <option>Eastern Mekaneyesus Addis Aabab </option>
+                                        <option>Western Mekaneyesus Addis Aabab </option>
+                                        <option>Southern Mekaneyesus Addis Aabab </option>
+                                    </select>
+                                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="font-noraml">Educational Background<strong>*</strong></label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" ng-model="Contact.EducationalBackground" placeholder="Educational Background">
+                                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="font-noraml">Qualification<strong>*</strong></label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" ng-model="Contact.EducationalBackground" placeholder="Qualification">
+                                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="font-noraml">Congregation<strong>*</strong></label>
+                                <div class="input-group date">
+                                    <select class="form-control">
+                                        <option>Eastern Mekaneyesus Addis Aabab </option>
+                                        <option>Western Mekaneyesus Addis Aabab </option>
+                                        <option>Southern Mekaneyesus Addis Aabab </option>
+                                    </select>
+                                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-noraml">Location<strong>*</strong></label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" ng-model="Contact.Location" placeholder="Location">
+                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-noraml">Note<strong>*</strong></label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" ng-model="Contact.Note" placeholder="Note">
+                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-noraml">Description <strong>*</strong></label>
+                        <div class="input-group date">
+                            <textarea type="text" rows="5" class="form-control" ng-model="Contact.Description" placeholder="Contact Group Description"></textarea>
+                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                        </div>
+                    </div>
+                    <br><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </fieldset>
+<fieldset>
+    <h2>Terms and Conditions</h2>
+    <input id="acceptTerms" name="acceptTerms" type="checkbox" ng-model="formData.terms" class="required"> <label for="acceptTerms">I a willingly agreed to be a member of EECMY- International Mission Society and to contibute the pleded amount as well as to take part in prayer and to share IMS vision to others. </label>
+</fieldset>
+
+
 <fieldset class="m-t-md">
+    <div class="form-group pull-right">
+        <button ng-click="ok()" class="btn btn-white" type="submit">Cancel</button>
+        <button ng-click="addContact(Contact)" class="btn btn-primary"  type="submit">Add Contact</button>
+    </div>
     <a ui-sref="partners.step_two" class="btn btn-default">Previous</a>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
 </fieldset>
