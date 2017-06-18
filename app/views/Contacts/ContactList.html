@@ -23,8 +23,8 @@
                         <small>Sort, search</small>
                     </h5>
                     <div class="ibox-tools">
-                        <a ng-click="addNewUser()" class="btn btn-default" ng-show="Privilege < 4">Upload Contact</a>
-                        <a ng-click="addNewContact()" class="btn btn-primary" ng-show="Privilege < 4">Add New Contact</a>
+                        <a ng-click="addNewUser()" class="btn btn-default">Upload Contact</a>
+                        <a ng-click="addNewContact()" class="btn btn-primary">Add New Contact</a>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -35,8 +35,8 @@
                             <th>Full Name</th>
                             <th>Phone Number</th>
                             <th>Email Address</th>
-                            <th>Location</th>
-                            <th>Note</th>
+                            <th>Age</th>
+                            <th>Sex</th>
                             <th>Created Date</th>
                             <th>Created By</th>
                             <th>Action</th>
@@ -45,14 +45,14 @@
                         <tbody>
                         <tr class="gradeX" ng-repeat="contact in Contacts">
                             <td><strong>{{contact.first_name+" "+contact.middle_name+" "+contact.last_name}}</strong></td>
-                            <td>{{contact.phone_number}}</td>
-                            <td>{{contact.email}}</td>
-                            <td>{{contact.location}}</td>
-                            <td>{{contact.note}}</td>
-                            <td>{{contact.updated_date.date.substring(0,19)}}</td>
-                            <td>{{contact.updated_by.full_name}}</td>
+                            <td><a>{{contact.phone}}</a></td>
+                            <td><a>{{contact.email}}</a></td>
+                            <td>{{contact.age}}</td>
+                            <td>{{contact.sex}}</td>
+                            <td>{{contact.created_date.date.substring(0,19)}}</td>
+                            <td>{{contact.created_by}}</td>
                             <td>
-                                <a ng-show="Privilege < 4" ng-click="editContact(contact)" class="fa fa-remove">Edit</a>
+                                <a ng-click="editContact(contact)" class="fa fa-remove">Edit</a>
                             </td>
                         </tr>
                         </tbody>

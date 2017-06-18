@@ -21,7 +21,7 @@
                 <h5>Contact Groups</h5>
 
                 <div class="ibox-tools">
-                    <a ng-click="addNewGroup()" class="btn btn-primary" ng-show="Privilege < 4">Add New Group</a>
+                    <a ng-click="addNewGroup()" class="btn btn-primary">Add New Group</a>
                 </div>
             </div>
             <div class="ibox-content">
@@ -59,7 +59,7 @@
                             </td>
                             <td>{{group.updated_date.date.substring(0,19)}}</td>
                             <td>
-                                <a ng-show="Privilege < 4" ng-click="removeGroup(group)" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i> Remove </a>
+                                <a ng-click="removeGroup(group)" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i> Remove </a>
                                 <a ng-click="showDetail(group)" class="btn btn-info btn-sm"><i class="fa fa-remove"></i> Detail </a>
                             </td>
 
