@@ -31,7 +31,9 @@ angular
         Services.requestServer = function (request) {
             return $http({
                 method:'POST',
-                url:'http://localhost:8888/MembersManager_api/public/api',
+                // url:'http://localhost:8888/MembersManager_api/public/api', // Local Server API Url
+                url:'http://api.membership.myims.org/api', // IMS Production Server
+                // url:'http://api.membership.staging.myims.org/api', // IMS Staging Server
                 data:$httpParamSerializer(request),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             });
