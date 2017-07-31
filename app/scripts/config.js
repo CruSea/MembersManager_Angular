@@ -73,7 +73,7 @@ function config($stateProvider, $urlRouterProvider, $translateProvider) {
             url: "/dashboard",
             templateUrl: "views/Dashboard/Dashboard.html",
             controller: 'DashboardCtrl',
-            data: { pageTitle: 'Example view' }
+            data: { pageTitle: 'IMS Dashboard' }
         })
 
 
