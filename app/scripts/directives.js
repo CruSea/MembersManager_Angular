@@ -193,4 +193,4 @@ angular
     .directive('iboxTools', iboxTools)
     .directive('minimalizaSidebar', minimalizaSidebar)
     .directive('iboxToolsFullScreen', iboxToolsFullScreen)
-    .directive('icheck', icheck);
+    // .directive('icheck', icheck);
