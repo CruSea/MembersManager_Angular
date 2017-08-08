@@ -1,236 +1,354 @@
 <div class="modal-body">
     <div class="row">
-        <div class="col-lg-12 animated fixed">
-            <div class="content">
-                <h2><strong>Add New Member Contact</strong></h2>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="font-noraml">First Name <strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.FirstName" placeholder="First Name">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+        <form method="post" ng-submit="addContact(Contact)">
+            <div class="col-lg-12 animated fixed">
+                <div class="content">
+                    <hr>
+                    <h2><strong>Add New Member Contact</strong></h2>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <h3>Personal Info</h3>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">First Name <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.FirstName" placeholder="First Name" required="required">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Middle Name <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.MiddleName" placeholder="Middle Name">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Last Name <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.LastName" placeholder="Last Name">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">Middle Name <strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.MiddleName" placeholder="Middle Name">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Phone</label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control ng-valid ng-touched ng-not-empty ng-dirty ng-valid-parse" placeholder="Phone Number" data-mask="+999999999999" ng-model="Contact.Phone" required="required">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Email Address <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.Email" placeholder="Email">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Sex<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Sex">
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Age<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="number" class="form-control" ng-model="Contact.Age" placeholder="Age">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">Last Name <strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.LastName" placeholder="Last Name">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <br>
+                            <h3>Address</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Country <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Country">
+                                                <option>Ethiopia</option>
+                                                <option>South Africa</option>
+                                                <option>Sudan</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Region <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Region">
+                                                <option>Addis Ababa Region</option>
+                                                <option>Amhara Region</option>
+                                                <option>Afar Region</option>
+                                                <option>Tigray Region</option>
+                                                <option>Oromo Region</option>
+                                                <option>South Region</option>
+                                                <option>Somalia Region</option>
+                                                <option>Gambela Region</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="font-noraml"> City <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.City">
+                                                <option>Addis Ababa</option>
+                                                <option>Bahirdar</option>
+                                                <option>Mekele</option>
+                                                <option>Hawassa</option>
+                                                <option>Nazret</option>
+                                                <option>Arbaminch</option>
+                                                <option>Hara</option>
+                                                <option>Jima</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Wereda <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.Wereda" placeholder="Wereda">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">Phone</label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control ng-valid ng-touched ng-not-empty ng-dirty ng-valid-parse" placeholder="Phone Number" data-mask="+251999999999" ng-model="Contact.Phone" required="">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Kebele <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.Kebele" placeholder="Kebele">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Home No <strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.HomeNum" placeholder="Home Number">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">P.O.Box<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.PostalBox" placeholder="Postal Office Box">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">Email Address <strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.Email" placeholder="Email">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <br>
+                            <h3>Synod And Congregation</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Synod<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Synod">
+                                                <option>Nothern Synod</option>
+                                                <option>South Synod</option>
+                                                <option>West Synod</option>
+                                                <option>East Synod</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Presbytery<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Presbytery">
+                                                <option>Eastern Addis Aabab </option>
+                                                <option>Western Addis Aabab </option>
+                                                <option>Southern Addis Aabab </option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Congregation<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Congregation">
+                                                <option>Eastern Mekaneyesus Addis Aabab </option>
+                                                <option>Western Mekaneyesus Addis Aabab </option>
+                                                <option>Southern Mekaneyesus Addis Aabab </option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="font-noraml">Country <strong>*</strong></label>
-                            <div class="input-group date">
-                                <select class="form-control">
-                                    <option>Ethiopia</option>
-                                    <option>South Africa</option>
-                                    <option>Sudan</option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="font-noraml">Other<strong>*</strong></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control" ng-model="Contact.OtherCongregation" placeholder="Other Congregation">
+                                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">Region <strong>*</strong></label>
-                            <div class="input-group date">
-                                <select class="form-control">
-                                    <option>Addis Ababa Region</option>
-                                    <option>Amhara Region</option>
-                                    <option>Afar Region</option>
-                                    <option>Tigray Region</option>
-                                    <option>Oromo Region</option>
-                                    <option>South Region</option>
-                                    <option>Somalia Region</option>
-                                    <option>Gambela Region</option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <br>
+                            <h3> Education And Occupation</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Occupation<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Occupation">
+                                                <option>Government</option>
+                                                <option>Church</option>
+                                                <option>Private</option>
+                                                <option>Student</option>
+                                                <option>Farmer</option>
+                                                <option>Other</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Education Background<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.EducationalBackground" placeholder="Education Background">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Qualification<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.Qualification" placeholder="Qualification">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">City <strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.City" placeholder="City">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="font-noraml">Other<strong>*</strong></label>
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control" ng-model="Contact.OtherEducation" placeholder="Other">
+                                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">Woreda <strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.Woreda" placeholder="Woreda">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <br>
+                            <h3> Membership Contributions</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Contribution Period<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control">
+                                                <option>Weekly</option>
+                                                <option>Monthly</option>
+                                                <option>Yearly</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Contribution Amount<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="number" class="form-control" ng-model="Contact.EducationalBackground" placeholder="Amount">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="font-noraml">Kebele <strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.Kebele" placeholder="Kebele">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="font-noraml">Age<strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.Age" placeholder="Age">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="font-noraml">Sex<strong>*</strong></label>
-                            <div class="input-group date">
-                                <select class="form-control" ng-model="Contact.Sex">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="font-noraml">Age<strong>*</strong></label>
-                            <div class="input-group date">
-                                <input type="text" class="form-control" ng-model="Contact.Location" placeholder="Location">
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="font-noraml">Synod<strong>*</strong></label>
-                            <div class="input-group date">
-                                <select class="form-control">
-                                    <option>Nothern Synod</option>
-                                    <option>South Synod</option>
-                                    <option>West Synod</option>
-                                    <option>East Synod</option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="font-noraml">Presbytery<strong>*</strong></label>
-                            <div class="input-group date">
-                                <select class="form-control">
-                                    <option>Eastern Addis Aabab </option>
-                                    <option>Western Addis Aabab </option>
-                                    <option>Southern Addis Aabab </option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="font-noraml">Congregation<strong>*</strong></label>
-                            <div class="input-group date">
-                                <select class="form-control">
-                                    <option>Eastern Mekaneyesus Addis Aabab </option>
-                                    <option>Western Mekaneyesus Addis Aabab </option>
-                                    <option>Southern Mekaneyesus Addis Aabab </option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <div class="form-group">
-                                <label class="font-noraml">Educational Background<strong>*</strong></label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" ng-model="Contact.EducationalBackground" placeholder="Educational Background">
-                                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Additional Contribution<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <select class="form-control" ng-model="Contact.Contribution">
+                                                <option>In Prayer</option>
+                                                <option>Raising Members</option>
+                                            </select>
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Special Gift<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.SpecialGift" placeholder="Special Gift">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="font-noraml">Other<strong>*</strong></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" ng-model="Contact.OtherContribution" placeholder="Other">
+                                            <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <div class="form-group">
-                                <label class="font-noraml">Qualification<strong>*</strong></label>
-                                <div class="input-group date">
-                                    <input type="text" class="form-control" ng-model="Contact.EducationalBackground" placeholder="Qualification">
-                                    <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                                </div>
-                            </div>
+                        <hr>
+                        <br><br>
+                        <div class="form-group pull-right">
+                            <button ng-click="ok()" class="btn btn-white" type="submit">Cancel</button>
+                            <button class="btn btn-primary"  type="submit">Add Contact</button>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="font-noraml">Congregation<strong>*</strong></label>
-                            <div class="input-group date">
-                                <select class="form-control">
-                                    <option>Eastern Mekaneyesus Addis Aabab </option>
-                                    <option>Western Mekaneyesus Addis Aabab </option>
-                                    <option>Southern Mekaneyesus Addis Aabab </option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="font-noraml">Location<strong>*</strong></label>
-                    <div class="input-group date">
-                        <input type="text" class="form-control" ng-model="Contact.Location" placeholder="Location">
-                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="font-noraml">Note<strong>*</strong></label>
-                    <div class="input-group date">
-                        <input type="text" class="form-control" ng-model="Contact.Note" placeholder="Note">
-                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="font-noraml">Description <strong>*</strong></label>
-                    <div class="input-group date">
-                        <textarea type="text" rows="5" class="form-control" ng-model="Contact.Description" placeholder="Contact Group Description"></textarea>
-                        <span class="input-group-addon"><i class="fa fa-flag-o"></i></span>
-                    </div>
-                </div>
-                <br><br>
-                <div class="form-group pull-right">
-                    <button ng-click="ok()" class="btn btn-white" type="submit">Cancel</button>
-                    <button ng-click="addContact(Contact)" class="btn btn-primary"  type="submit">Add Contact</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>

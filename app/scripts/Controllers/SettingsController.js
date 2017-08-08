@@ -66,11 +66,11 @@ angular
         $scope.activateUser = function (user) {
             swal({
                     title: "Are you sure?",
-                    text: "Your will not be able to recover this user back!",
+                    text: "You are activating the user account!!!",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, remove it!",
+                    confirmButtonText: "Yes, Activate it!",
                     cancelButtonText: "No, cancel please!",
                     closeOnConfirm: false,
                     closeOnCancel: false },
@@ -101,11 +101,11 @@ angular
         $scope.deActivateUser = function (user) {
             swal({
                     title: "Are you sure?",
-                    text: "Your will not be able to recover this user back!",
+                    text: "You are deactivating the user account!",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, remove it!",
+                    confirmButtonText: "Yes, deactivate it!",
                     cancelButtonText: "No, cancel please!",
                     closeOnConfirm: false,
                     closeOnCancel: false },

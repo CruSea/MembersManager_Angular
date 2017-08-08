@@ -284,6 +284,7 @@ angular
         $scope.addGroupContact = function () {
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/Contacts/ModalAddGroupContact.html',
+                size:'lg',
                 controller: ModalInstanceCtrl
             });
         };

@@ -77,7 +77,17 @@ angular
                 console.log("Add New Member Contact:->", newContact);
                 var req_format = APIServices.getRequestFormat();
                 req_format.service = "add_new_contact";
-                req_format.param = {first_name:newContact.FirstName,middle_name:newContact.MiddleName,last_name:newContact.LastName,phone:newContact.Phone,email:newContact.Email,age:newContact.Age,sex:newContact.Sex};
+                req_format.param = {first_name:newContact.FirstName,middle_name:newContact.MiddleName,
+                    last_name:newContact.LastName,phone:newContact.Phone,
+                    email:newContact.Email,age:newContact.Age,sex:newContact.Sex,
+                    country:newContact.Country,region:newContact.Region,city:newContact.City,
+                    wereda:newContact.Wereda,kebele:newContact.Kebele,house_num:newContact.HouseNum,
+                    postal_box:newContact.PostalBox,synod:newContact.Synod,presbytery:newContact.Presbytery,
+                    congregation:newContact.Congregation,other_congregation:newContact.OtherCongregation,
+                    occupation:newContact.Occupation,educational_background:newContact.EducationalBackground,
+                    qualification:newContact.Qualification,contribution_period:newContact.ContributionPeriod,
+                    other_contribution:newContact.OtherCOntribution,special_gift:newContact.SpecialGift
+                };
                 console.log("Sent:",req_format);
                 APIServices.requestServer(req_format).then(function (response) {
                     console.log("Response:",response);
@@ -94,7 +104,18 @@ angular
                 console.log("Update Contact:->", newContact);
                 var req_format = APIServices.getRequestFormat();
                 req_format.service = "update_contact";
-                req_format.param = {contact_id:$scope.Contact.id,first_name:newContact.first_name,middle_name:newContact.middle_name,phone:newContact.phone,email:newContact.email};
+                req_format.param = {contact_id:newContact.id,
+                    first_name:newContact.first_name,middle_name:newContact.middle_name,
+                    last_name:newContact.last_name,phone:newContact.phone,
+                    email:newContact.email,age:newContact.age,sex:newContact.sex,
+                    country:newContact.country,region:newContact.region,city:newContact.city,
+                    wereda:newContact.wereda,kebele:newContact.kebele,house_num:newContact.house_num,
+                    postal_box:newContact.postal_box,synod:newContact.synod,presbytery:newContact.presbytery,
+                    congregation:newContact.congregation,other_congregation:newContact.other_congregation,
+                    occupation:newContact.occupation,educational_background:newContact.educational_background,
+                    qualification:newContact.qualification,contribution_period:newContact.contribution_period,
+                    other_contribution:newContact.other_contribution,special_gift:newContact.special_gift
+                };
                 console.log("Sent Update Contact:",req_format);
                 APIServices.requestServer(req_format).then(function (response) {
                     console.log("Response:",response);
@@ -148,6 +169,7 @@ angular
         $scope.addNewContact = function () {
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/Contacts/ModalAddContact.html',
+                size:'lg',
                 controller: ModalInstanceCtrl
             });
         };
@@ -156,6 +178,7 @@ angular
             console.log("Selected Contact:",$scope.SelectedContact);
             var modalInstance = $uibModal.open({
                 templateUrl: 'views/Contacts/ModalEditContact.html',
+                size:'lg',
                 controller: ModalInstanceCtrl
             });
         };
